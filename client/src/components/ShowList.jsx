@@ -7,9 +7,7 @@ var ShowList = React.createClass({
      return (
       <Show name={showObject.name}
       key={showObject.id}
-      >
-      {showObject.text}
-      </Show>
+      ></Show>
       )
    });
 

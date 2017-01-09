@@ -19757,7 +19757,7 @@
 	var React = __webpack_require__(1);
 	var ShowList = __webpack_require__(160);
 	
-	var movies = [{ id: 1, name: "Sausage Party", url: "http://www.imdb.com/title/tt1700841?pf_rd_m=A2FGELUUNOQJNL&pf_rd_p=1970868962&pf_rd_r=10B79GWTXE5MERRSR82F&pf_rd_s=right-2&pf_rd_t=15061&pf_rd_i=homepage&ref_=hm_otw_t0", showTimesURL: "http://www.imdb.com/showtimes/title/tt1700841?pf_rd_m=A2FGELUUNOQJNL&pf_rd_p=1970868962&pf_rd_r=10B79GWTXE5MERRSR82F&pf_rd_s=right-2&pf_rd_t=15061&pf_rd_i=homepage&ref_=hm_otw_gs" }, { id: 2, name: "Café Society", url: "http://www.imdb.com/title/tt4513674?pf_rd_m=A2FGELUUNOQJNL&pf_rd_p=1970868962&pf_rd_r=10B79GWTXE5MERRSR82F&pf_rd_s=right-2&pf_rd_t=15061&pf_rd_i=homepage&ref_=hm_otw_t1", showTimesURL: "http://www.imdb.com/showtimes/title/tt4513674?pf_rd_m=A2FGELUUNOQJNL&pf_rd_p=1970868962&pf_rd_r=10B79GWTXE5MERRSR82F&pf_rd_s=right-2&pf_rd_t=15061&pf_rd_i=homepage&ref_=hm_otw_gs" }, { id: 3, name: "Sausage Party", url: "http://www.imdb.com/title/tt1700841?pf_rd_m=A2FGELUUNOQJNL&pf_rd_p=1970868962&pf_rd_r=10B79GWTXE5MERRSR82F&pf_rd_s=right-2&pf_rd_t=15061&pf_rd_i=homepage&ref_=hm_otw_t0", showTimesURL: "http://www.imdb.com/showtimes/title/tt1700841?pf_rd_m=A2FGELUUNOQJNL&pf_rd_p=1970868962&pf_rd_r=10B79GWTXE5MERRSR82F&pf_rd_s=right-2&pf_rd_t=15061&pf_rd_i=homepage&ref_=hm_otw_gs" }, { id: 4, name: "Café Society", url: "http://www.imdb.com/title/tt4513674?pf_rd_m=A2FGELUUNOQJNL&pf_rd_p=1970868962&pf_rd_r=10B79GWTXE5MERRSR82F&pf_rd_s=right-2&pf_rd_t=15061&pf_rd_i=homepage&ref_=hm_otw_t1", showTimesURL: "http://www.imdb.com/showtimes/title/tt4513674?pf_rd_m=A2FGELUUNOQJNL&pf_rd_p=1970868962&pf_rd_r=10B79GWTXE5MERRSR82F&pf_rd_s=right-2&pf_rd_t=15061&pf_rd_i=homepage&ref_=hm_otw_gs" }];
+	var movies = [{ id: 1, name: "Sausage Party" }, { id: 2, name: "Café Society" }, { id: 3, name: "La La Land" }, { id: 4, name: "Moana" }];
 	
 	var ShowBox = React.createClass({
 	  displayName: 'ShowBox',
@@ -19766,20 +19766,31 @@
 	    return { data: movies };
 	  },
 	
+	  getShowTimes: function getShowTimes() {
+	    console.log("button go click");
+	  },
+	
 	  render: function render() {
 	    return React.createElement(
 	      'div',
 	      { className: 'show-box' },
 	      React.createElement(
-	        'h1',
+	        'h2',
 	        null,
 	        ' Now Showing! '
 	      ),
 	      React.createElement(ShowList, { shows: this.state.data }),
 	      React.createElement(
+	        'a',
+	        { href: 'url' },
+	        'More new films'
+	      ),
+	      React.createElement('br', null),
+	      React.createElement('br', null),
+	      React.createElement(
 	        'button',
-	        null,
-	        ' Get Showtimes!'
+	        { onClick: this.getShowTimes },
+	        'Get Showtimes!'
 	      )
 	    );
 	  }
@@ -19801,13 +19812,9 @@
 	
 	  render: function render() {
 	    var showComponents = this.props.shows.map(function (showObject) {
-	      return React.createElement(
-	        Show,
-	        { name: showObject.name,
-	          key: showObject.id
-	        },
-	        showObject.text
-	      );
+	      return React.createElement(Show, { name: showObject.name,
+	        key: showObject.id
+	      });
 	    });
 	
 	    return React.createElement(
