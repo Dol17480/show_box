@@ -16,7 +16,9 @@ var ShowBox = React.createClass({
   render: function () {
     return (
       <div className='show-box'>
+      <h1> Now Showing! </h1>
         <ShowList shows={this.state.data}/>
+        <button> Get Showtimes!</button>
       </div>
       )
   },

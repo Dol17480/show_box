@@ -19770,7 +19770,17 @@
 	    return React.createElement(
 	      'div',
 	      { className: 'show-box' },
-	      React.createElement(ShowList, { shows: this.state.data })
+	      React.createElement(
+	        'h1',
+	        null,
+	        ' Now Showing! '
+	      ),
+	      React.createElement(ShowList, { shows: this.state.data }),
+	      React.createElement(
+	        'button',
+	        null,
+	        ' Get Showtimes!'
+	      )
 	    );
 	  }
 	});
